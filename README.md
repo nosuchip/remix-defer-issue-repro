@@ -1,40 +1,21 @@
-# Welcome to Remix!
+### Issue description
 
-- 📖 [Remix docs](https://remix.run/docs)
+- Having component `ProductsList` which import and re-export `loader` declared in Resource route `/api/products`
+- Component contains Suspense/Await to dynamically show skeleton while loading data
 
-## Development
+### Steps to reproduce
 
-Run the dev server:
+- clone repo
+- install dependencies with `npm install`
+- run code `npm run dev`
+- access `http://localhost:5173`
 
-```shellscript
-npm run dev
+**Expected**: page opens, initially `Suspense` show "loading" then, when `products` array is awaited show jsonified array
+
+**Actually**: server error
+
 ```
+11:00:58 PM [vite] Internal server error: Server-only module referenced by client
 
-## Deployment
-
-First, build your app for production:
-
-```sh
-npm run build
+'~/db/db.server' imported by 'app/routes/api/products.ts'
 ```
-
-Then run the app in production mode:
-
-```sh
-npm start
-```
-
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-- `build/server`
-- `build/client`
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever css framework you prefer. See the [Vite docs on css](https://vitejs.dev/guide/features.html#css) for more information.
