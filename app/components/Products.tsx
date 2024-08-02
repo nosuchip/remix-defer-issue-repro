@@ -1,7 +1,7 @@
 import { Await, useLoaderData } from "@remix-run/react";
 
 import { Suspense } from "react";
-import { loader } from "../api/products";
+import { loader } from "~/routes/api/products";
 
 export { loader };
 
